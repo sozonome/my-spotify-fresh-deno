@@ -1,6 +1,9 @@
 import { HandlerContext } from "$fresh/server.ts";
-import { getSpotifyNowPlaying } from "@/lib/services/spotify/now-playing/index.ts";
-import type { GetNowPlayingTransformed } from "@/lib/services/spotify/now-playing/types.ts";
+import {
+  getSpotifyNowPlaying,
+  transformNowPlayingResponse,
+} from "@/lib/services/spotify/user/now-playing/index.ts";
+import type { GetNowPlayingTransformed } from "@/lib/services/spotify/user/now-playing/types.ts";
 
 export const handler = async (
   req: Request,
@@ -22,14 +25,8 @@ export const handler = async (
       });
     }
 
-    const data: GetNowPlayingTransformed = {
-      isPlaying: response.is_playing,
-      trackTitle: response.item.name,
-      artist: response.item.album.artists.map(({ name }) => name).join(", "),
-      album: response.item.album.name,
-      albumArtUrl: response.item.album.images[0].url,
-      trackUrl: response.item.external_urls.spotify,
-    };
+    const data: GetNowPlayingTransformed =
+      transformNowPlayingResponse(response);
 
     return new Response(JSON.stringify(data), {
       status: 200,
