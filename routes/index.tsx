@@ -2,7 +2,7 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { h } from "preact";
 import { tw } from "@twind";
-import SpotifyListening from "@/islands/SpotifyListening.tsx";
+import SpotifyListeningPlain from "@/lib/components/SpotifyListeningPlain.tsx";
 import MainLayout from "@/lib/layout/index.tsx";
 import { GetNowPlayingTransformed } from "@/lib/services/spotify/user/now-playing/types.ts";
 
@@ -24,7 +24,7 @@ const Home = ({ data }: PageProps<GetNowPlayingTransformed | undefined>) => {
         <h1 class={tw`text-lg font-extrabold text-green-600 text-center`}>
           My Spotify Listening
         </h1>
-        <SpotifyListening fallbackData={data} />
+        <SpotifyListeningPlain data={data} />
       </div>
     </MainLayout>
   );
