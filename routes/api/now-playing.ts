@@ -4,6 +4,7 @@ import {
   transformNowPlayingResponse,
 } from "@/lib/services/spotify/user/now-playing/index.ts";
 import type { GetNowPlayingTransformed } from "@/lib/services/spotify/user/now-playing/types.ts";
+import { defaultHeader } from "@/lib/constants/response.ts";
 
 export const handler = async (
   req: Request,
@@ -19,9 +20,7 @@ export const handler = async (
     if (!response || !response.item) {
       return new Response(JSON.stringify({ isPlaying: false }), {
         status: 200,
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: defaultHeader,
       });
     }
 
@@ -30,16 +29,12 @@ export const handler = async (
 
     return new Response(JSON.stringify(data), {
       status: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: defaultHeader,
     });
   } catch {
     return new Response(JSON.stringify({ isPlaying: false }), {
       status: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: defaultHeader,
     });
   }
 };

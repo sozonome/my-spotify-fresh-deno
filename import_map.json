@@ -1,11 +1,10 @@
 {
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.0.0/",
-    "preact": "https://esm.sh/preact@10.8.1",
-    "preact/": "https://esm.sh/preact@10.8.1/",
-    "preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.0?deps=preact@10.8.1",
+    "$fresh/": "https://deno.land/x/fresh@1.1.0/",
+    "preact": "https://esm.sh/preact@10.10.6",
+    "preact/": "https://esm.sh/preact@10.10.6/",
+    "preact-render-to-string": "https://esm.sh/*preact-render-to-string@5.2.3/",
     "@/lib/": "./src/lib/",
-    "@twind": "./src/lib/utils/twind.ts",
     "@/islands/": "./islands/",
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
@@ -14,6 +13,8 @@
     "https://esm.sh/v86/react@18.2.0/deno/react.js": "https://esm.sh/preact@10.8.1/compat",
     "encode": "https://deno.land/std@0.146.0/encoding/base64.ts",
     "dotenv": "https://deno.land/x/dotenv@v3.2.0",
-    "dotenv/": "https://deno.land/x/dotenv@v3.2.0/"
+    "dotenv/": "https://deno.land/x/dotenv@v3.2.0/",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.0.3",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1"
   }
 }

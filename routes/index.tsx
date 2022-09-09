@@ -1,7 +1,4 @@
-/** @jsx h */
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { h } from "preact";
-import { tw } from "@twind";
 import SpotifyListeningPlain from "@/lib/components/SpotifyListeningPlain.tsx";
 import MainLayout from "@/lib/layout/index.tsx";
 import { GetNowPlayingTransformed } from "@/lib/services/spotify/user/now-playing/types.ts";
@@ -20,8 +17,8 @@ export const handler: Handlers<GetNowPlayingTransformed | undefined> = {
 const Home = ({ data }: PageProps<GetNowPlayingTransformed | undefined>) => {
   return (
     <MainLayout>
-      <div class={tw`flex flex-col gap-8`}>
-        <h1 class={tw`text-lg font-extrabold text-green-600 text-center`}>
+      <div class="flex flex-col gap-8">
+        <h1 class="text-lg font-extrabold text-green-600 text-center">
           My Spotify Listening
         </h1>
         <SpotifyListeningPlain data={data} />
